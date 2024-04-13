@@ -5,6 +5,14 @@ services:
     build: .
     env_file:
       - .env
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
     volumes:
       - .:/app
     restart: always
+    networks:
+      - shared_network
+
+networks:
+  shared_network:
+    external: true
